@@ -10,7 +10,7 @@ ___
 Lets say we have a software application and we want to unit test it. We keep the code to be unit tested in a library project (in this example called "**Lib**"). The console application "**App**" will refer to **Lib** to run the code. The unit tests will be implemented in a library project called "**LibTests**" that references **Lib**. **App** and **LibTests** have NOTHING to do with each other. This way no unit testing frameworks get into our application codebase.
 
 **App** and **LibTests** references **Lib**.
-![unittesting01](https://user-images.githubusercontent.com/38290734/38790855-85c70bf6-4176-11e8-9eca-70faad72e5bd.png)
+![fsunittest_pic01](https://user-images.githubusercontent.com/38290734/39326272-b947c328-4994-11e8-8b12-b86b4a955290.png)
 
 
 ### Add the following nuget packages to **LibTests**:
@@ -20,10 +20,10 @@ Lets say we have a software application and we want to unit test it. We keep the
 
 ### Steps
 * Create a module (here named "**MyModule**") in **Lib** with some code to test.
-![unittesting02](https://user-images.githubusercontent.com/38290734/38791309-7dc42490-4179-11e8-9f16-5d19aa913d7f.png)
+![fsunittest_pic02](https://user-images.githubusercontent.com/38290734/39326274-ba7d3cc8-4994-11e8-81bd-5e1ab746d669.png)
 
 * Create a module (here named "**MyModuleTests**") in **LibTests** for testing code in **MyModule**.
-![unittesting03](https://user-images.githubusercontent.com/38290734/38791477-8b370e5c-417a-11e8-8b9b-668c4b500435.png)
+![fsunittest_pic03](https://user-images.githubusercontent.com/38290734/39326277-bb6c56a0-4994-11e8-94c9-a7e49a81af44.png)
 
 * Build the solution to make code in **LibTests** see modules in **Libs**.
 
@@ -41,7 +41,7 @@ module MyModuleTests =
 ```
 
 * Build **LibTests** and open the *Test Explorer* in Visual Studio and you should see something like this:
-![unittesting04](https://user-images.githubusercontent.com/38290734/38870592-d82f7ce2-4280-11e8-898d-b9a32b3e6349.png)
+![fsunittest_pic04](https://user-images.githubusercontent.com/38290734/39326280-bc6a1ae2-4994-11e8-99f6-ec300122c47d.png)
 
 * Right-click a unit test in the *Test Explorer* and select "Run Selected Tests" to run the test. For this particular test, FsCheck should find a case when `f x > 0` does not hold, i.e when x = 0.
 
